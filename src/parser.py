@@ -2,69 +2,76 @@ from .grammar import Grammar
 
 class Parser:
 
-    def __eval_statement_op(self, ast_node, statement, source, index):
-        result = True
-        if statement['op'] == '|':
-            result = False
+    def __eval_statement_op_and(self, ast_node, statement, source, index):
         _index = index
-        __index = index
-        diff = 0
-        for i in range(len(statement['statements'])):
-            if statement['op'] == '|':
-                _result, _index = self.__eval_statement(ast_node, statement['statements'][i], source, _index)
-                if _result == True:
-                    return _result, _index
-                else:
-                    continue
-            elif statement['op'] == ',':
-                _result, _index = self.__eval_statement(ast_node, statement['statements'][i], source, _index)
-                result = result and _result
-            elif statement['op'] == '-':
-                _result, __index = self.__eval_statement(ast_node, statement['statements'][i], source, index)
-                diff += __index - index
-                if i == 0:
-                    result = _result
-                    if result:
-                        _index = __index
-                else:
-                    result = result and not _result
-                    if result == False:
-                        ast_node['value'] = ast_node['value'][:-(diff)]
-            elif len(statement['statements']) == 1:
-                result, _index = self.__eval_statement(ast_node, statement['statements'][i], source, index)
-            else:
-                print('ebnf_op_eval unhandled statement ', statement)
+        for i in statement['statements']:
+            _result, _index = self.__eval_statement(ast_node, i, source, _index)
+            if _result == False:
                 return False, index
+        return True, _index
+    
+    def __eval_statement_op_or(self, ast_node, statement, source, index):
+        for i in statement['statements']:
+            _result, _index = self.__eval_statement(ast_node, i, source, index)
+            if _result:
+                return True, _index
+        return False, index
 
-            if result == False:
+    def __eval_statement_op_nand(self, ast_node, statement, source, index):
+        for i in range(len(statement['statements'])):
+            _result, _index = self.__eval_statement(ast_node, statement['statements'][i], source, index)
+            if i == 0 and _result:
+                __index = _index
+            elif i == 0 and not _result:
                 return False, index
-        if result == True:
-            return True, _index
+            elif _result:
+                return False, index
+        return True, __index
+
+    def __eval_statement_op(self, ast_node, statement, source, index):
+        if statement['op'] == ',':
+            return self.__eval_statement_op_and(ast_node, statement, source, index)
+        elif statement['op'] == '|':
+            return self.__eval_statement_op_or(ast_node, statement, source, index)
+        elif statement['op'] == '-':
+            return self.__eval_statement_op_nand(ast_node, statement, source, index)
+        elif len(statement['statements']) == 1:
+            return self.__eval_statement(ast_node, statement['statements'][0], source, index)
         else:
+            print('__eval_statement_op unhandled statement ', statement)
             return False, index
 
     def __eval_statement(self, ast_node, statement, source, index):
         _type = statement['type']
         if _type == '{}':
             while True:
-                _result, _index = self.__eval_statement_op(ast_node, statement, source, index)
-                if _result == True:
+                temp_ast_node = ast_node.copy()
+
+                _result, _index = self.__eval_statement_op(temp_ast_node, statement, source, index)
+                if _result == True and _index > index:
+                    if 'statements' in temp_ast_node:
+                        ast_node['statements'] = temp_ast_node['statements']
+                    if 'value' in ast_node:
+                        ast_node['value'] = temp_ast_node['value']
                     result = _result
                     index = _index
                 else:
                     return True, index
         elif _type == '[]':
-            result, _index = self.__eval_statement_op(ast_node, statement, source, index)
+            temp_ast_node = ast_node.copy()
+            result, _index = self.__eval_statement_op(temp_ast_node, statement, source, index)
             if result == True:
+                if 'statements' in temp_ast_node:
+                    ast_node['statements'] = temp_ast_node['statements']
+                if 'value' in ast_node:
+                    ast_node['value'] = temp_ast_node['value']
                 return True, _index
             else:
                 return True, index
-        elif _type == 'rule' or _type == '()':
+        elif _type in ['rule', '()']:
             return self.__eval_statement_op(ast_node, statement, source, index)
         elif _type == 'var':
             return self.__parse_recurse(ast_node, statement['value'], source, index)
-        elif _type in ['{}', '[]', '()', 'rule']:
-            return self.__eval_statement(ast_node, statement, source, index)
         elif _type == 'str':
             value = statement['value']
             if source[index:index+len(value)] == value:
