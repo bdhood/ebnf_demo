@@ -1,4 +1,5 @@
 {
+    "rule": "root",
     "statements": [
         {
             "rule": "program",
@@ -373,5 +374,5 @@
             ]
         }
     ],
-    "value": ""
+    "value": "public main:\n    mov rax, 0\n    call inc_rax\n    call inc_rax\n    mov rcx, dword [rax]\n    hlt rax\n\nprivate inc_rax:\n    enter\n    add rax, 1\n    leave\n"
 }

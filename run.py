@@ -15,7 +15,7 @@ for i in examples:
         
     with open(f'examples/{i}/source.{i}', 'r') as f:
         parser = Parser(grammar)
-        ast = parser.parse(f.read())
+        ast = parser.parse(f.read(), filename=f'examples/{i}/source.{i}')
         if ast == None:
             print("error:")
             parser.print_errors()
