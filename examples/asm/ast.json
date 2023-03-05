@@ -1,0 +1,377 @@
+{
+    "statements": [
+        {
+            "rule": "program",
+            "value": "public main:\n    mov rax, 0\n    call inc_rax\n    call inc_rax\n    mov rcx, dword [rax]\n    hlt rax\n\nprivate inc_rax:\n    enter\n    add rax, 1\n    leave\n",
+            "statements": [
+                {
+                    "rule": "statement",
+                    "value": "public main:",
+                    "statements": [
+                        {
+                            "rule": "label",
+                            "value": "public main:",
+                            "statements": [
+                                {
+                                    "rule": "space",
+                                    "value": " "
+                                },
+                                {
+                                    "rule": "identifer",
+                                    "value": "main"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "statement",
+                    "value": "mov rax, 0",
+                    "statements": [
+                        {
+                            "rule": "instruction",
+                            "value": "mov rax, 0",
+                            "statements": [
+                                {
+                                    "rule": "opcode",
+                                    "value": "mov"
+                                },
+                                {
+                                    "rule": "space",
+                                    "value": " "
+                                },
+                                {
+                                    "rule": "left operand",
+                                    "value": "rax",
+                                    "statements": [
+                                        {
+                                            "rule": "register",
+                                            "value": "rax"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rule": "space",
+                                    "value": " "
+                                },
+                                {
+                                    "rule": "right operand",
+                                    "value": "0",
+                                    "statements": [
+                                        {
+                                            "rule": "value",
+                                            "value": "0",
+                                            "statements": [
+                                                {
+                                                    "rule": "dec int",
+                                                    "value": "0"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "statement",
+                    "value": "call inc_rax",
+                    "statements": [
+                        {
+                            "rule": "instruction",
+                            "value": "call inc_rax",
+                            "statements": [
+                                {
+                                    "rule": "opcode",
+                                    "value": "call"
+                                },
+                                {
+                                    "rule": "space",
+                                    "value": " "
+                                },
+                                {
+                                    "rule": "left operand",
+                                    "value": "inc_rax",
+                                    "statements": [
+                                        {
+                                            "rule": "identifer",
+                                            "value": "inc_rax"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "statement",
+                    "value": "call inc_rax",
+                    "statements": [
+                        {
+                            "rule": "instruction",
+                            "value": "call inc_rax",
+                            "statements": [
+                                {
+                                    "rule": "opcode",
+                                    "value": "call"
+                                },
+                                {
+                                    "rule": "space",
+                                    "value": " "
+                                },
+                                {
+                                    "rule": "left operand",
+                                    "value": "inc_rax",
+                                    "statements": [
+                                        {
+                                            "rule": "identifer",
+                                            "value": "inc_rax"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "statement",
+                    "value": "mov rcx, dword [rax]",
+                    "statements": [
+                        {
+                            "rule": "instruction",
+                            "value": "mov rcx, dword [rax]",
+                            "statements": [
+                                {
+                                    "rule": "opcode",
+                                    "value": "mov"
+                                },
+                                {
+                                    "rule": "space",
+                                    "value": " "
+                                },
+                                {
+                                    "rule": "left operand",
+                                    "value": "rcx",
+                                    "statements": [
+                                        {
+                                            "rule": "register",
+                                            "value": "rcx"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rule": "space",
+                                    "value": " "
+                                },
+                                {
+                                    "rule": "right operand",
+                                    "value": "dword [rax]",
+                                    "statements": [
+                                        {
+                                            "rule": "pointer",
+                                            "value": "dword [rax]",
+                                            "statements": [
+                                                {
+                                                    "rule": "pointer type",
+                                                    "value": "dword ",
+                                                    "statements": [
+                                                        {
+                                                            "rule": "white space",
+                                                            "value": " "
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "rule": "register",
+                                                    "value": "rax"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "statement",
+                    "value": "hlt rax",
+                    "statements": [
+                        {
+                            "rule": "instruction",
+                            "value": "hlt rax",
+                            "statements": [
+                                {
+                                    "rule": "opcode",
+                                    "value": "hlt"
+                                },
+                                {
+                                    "rule": "space",
+                                    "value": " "
+                                },
+                                {
+                                    "rule": "left operand",
+                                    "value": "rax",
+                                    "statements": [
+                                        {
+                                            "rule": "register",
+                                            "value": "rax"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n\n"
+                },
+                {
+                    "rule": "statement",
+                    "value": "private inc_rax:",
+                    "statements": [
+                        {
+                            "rule": "label",
+                            "value": "private inc_rax:",
+                            "statements": [
+                                {
+                                    "rule": "space",
+                                    "value": " "
+                                },
+                                {
+                                    "rule": "identifer",
+                                    "value": "inc_rax"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "statement",
+                    "value": "enter",
+                    "statements": [
+                        {
+                            "rule": "instruction",
+                            "value": "enter",
+                            "statements": [
+                                {
+                                    "rule": "opcode",
+                                    "value": "enter"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "statement",
+                    "value": "add rax, 1",
+                    "statements": [
+                        {
+                            "rule": "instruction",
+                            "value": "add rax, 1",
+                            "statements": [
+                                {
+                                    "rule": "opcode",
+                                    "value": "add"
+                                },
+                                {
+                                    "rule": "space",
+                                    "value": " "
+                                },
+                                {
+                                    "rule": "left operand",
+                                    "value": "rax",
+                                    "statements": [
+                                        {
+                                            "rule": "register",
+                                            "value": "rax"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rule": "space",
+                                    "value": " "
+                                },
+                                {
+                                    "rule": "right operand",
+                                    "value": "1",
+                                    "statements": [
+                                        {
+                                            "rule": "value",
+                                            "value": "1",
+                                            "statements": [
+                                                {
+                                                    "rule": "dec int",
+                                                    "value": "1"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "statement",
+                    "value": "leave",
+                    "statements": [
+                        {
+                            "rule": "instruction",
+                            "value": "leave",
+                            "statements": [
+                                {
+                                    "rule": "opcode",
+                                    "value": "leave"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n"
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n"
+                }
+            ]
+        }
+    ],
+    "value": ""
+}

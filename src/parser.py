@@ -74,6 +74,8 @@ class Parser:
             return self.__parse_recurse(ast_node, statement['value'], source, index)
         elif _type == 'str':
             value = statement['value']
+            if index + len(value) > len(source):
+                return False, index
             if source[index:index+len(value)] == value:
                 ast_node['value'] += value
                 return True, index+len(value)
@@ -81,6 +83,8 @@ class Parser:
                 return False, index
         elif _type == 'spec':
             value = statement['value']
+            if index >= len(source):
+                return False, index
             if value in self.special_map.keys():
                 if source[index] in self.special_map[value]:
                     ast_node['value'] += str(source[index])
@@ -100,7 +104,7 @@ class Parser:
         else:
             ast_node['statements'].append({'rule': rule_name, 'value': ''})
         rule = self.grammar.get_rule(rule_name)
-        if rule == False:
+        if rule == None:
             ast_node['statements'].pop()
             return False, index
         else:
@@ -112,8 +116,12 @@ class Parser:
                 elif len(ast_node['statements'][-1]['value']) > 0:
                     ast_node['value'] += ast_node['statements'][-1]['value']
                 return result, _index
+            elif _index < len(source):
+                self.error_stack.append(f'error line: {str(self.__get_line_number(source, _index))}  rule: \'{rule_name}\'  character: \'{source[_index]}\'')
+                ast_node['statements'].pop()
+                return False, index
             else:
-                self.error_stack.append(f'error line: {str(self.__get_line_number(source, index))}  rule: \'{rule_name}\'  character: \'{source[index]}\'')
+                self.error_stack.append(f'error rule: \'{rule_name}\'  character index: \'{str(_index)}\'')
                 ast_node['statements'].pop()
                 return False, index
 
@@ -127,11 +135,21 @@ class Parser:
         return -1
 
     def __init__(self, grammar: Grammar):
+        a_z = ''.join([chr(i) for i in range(ord('a'), ord('z') + 1)])
+        A_Z = ''.join([chr(i) for i in range(ord('A'), ord('Z') + 1)])
+        _0_9 = '0123456789'
+
         self.grammar = grammar
         self.error_stack = []
         self.special_map = {
             'white space characters': " \t\r\n",
-            'all visible characters': ''.join([chr(i) for i in range(0x20, 0x7f)])
+            'all visible characters': ''.join([chr(i) for i in range(0x20, 0x7f)]),
+            'a_z': a_z,
+            'A_Z': A_Z,
+            'A_z': A_Z + a_z,
+            '_0_9': _0_9,
+            '_0_9A_Fa_f': _0_9 + "ABCDEF" + "abcdef",
+            'A_z0_9': A_Z + a_z + _0_9 
         }
 
     def parse(self, source: str):

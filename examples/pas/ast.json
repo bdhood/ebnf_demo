@@ -1,0 +1,411 @@
+{
+    "statements": [
+        {
+            "rule": "program",
+            "value": "PROGRAM DEMO1\nBEGIN\n    A:=3;\n    B:=45;\n    H:=-100023;\n    C:=A;\n    D123:=B34A;\n    BABOON:=GIRAFFE;\n    TEXT:=\"Hello world!\";\nEND.",
+            "statements": [
+                {
+                    "rule": "white space",
+                    "value": " "
+                },
+                {
+                    "rule": "identifier",
+                    "value": "DEMO1",
+                    "statements": [
+                        {
+                            "rule": "alphabetic character",
+                            "value": "D"
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "E"
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "M"
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "O"
+                        },
+                        {
+                            "rule": "digit",
+                            "value": "1"
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n"
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "assignment",
+                    "value": "A:=3",
+                    "statements": [
+                        {
+                            "rule": "identifier",
+                            "value": "A",
+                            "statements": [
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "A"
+                                }
+                            ]
+                        },
+                        {
+                            "rule": "number",
+                            "value": "3",
+                            "statements": [
+                                {
+                                    "rule": "digit",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "assignment",
+                    "value": "B:=45",
+                    "statements": [
+                        {
+                            "rule": "identifier",
+                            "value": "B",
+                            "statements": [
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "B"
+                                }
+                            ]
+                        },
+                        {
+                            "rule": "number",
+                            "value": "45",
+                            "statements": [
+                                {
+                                    "rule": "digit",
+                                    "value": "4"
+                                },
+                                {
+                                    "rule": "digit",
+                                    "value": "5"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "assignment",
+                    "value": "H:=-100023",
+                    "statements": [
+                        {
+                            "rule": "identifier",
+                            "value": "H",
+                            "statements": [
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "H"
+                                }
+                            ]
+                        },
+                        {
+                            "rule": "number",
+                            "value": "-100023",
+                            "statements": [
+                                {
+                                    "rule": "digit",
+                                    "value": "1"
+                                },
+                                {
+                                    "rule": "digit",
+                                    "value": "0"
+                                },
+                                {
+                                    "rule": "digit",
+                                    "value": "0"
+                                },
+                                {
+                                    "rule": "digit",
+                                    "value": "0"
+                                },
+                                {
+                                    "rule": "digit",
+                                    "value": "2"
+                                },
+                                {
+                                    "rule": "digit",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "assignment",
+                    "value": "C:=A",
+                    "statements": [
+                        {
+                            "rule": "identifier",
+                            "value": "C",
+                            "statements": [
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "C"
+                                }
+                            ]
+                        },
+                        {
+                            "rule": "identifier",
+                            "value": "A",
+                            "statements": [
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "A"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "assignment",
+                    "value": "D123:=B34A",
+                    "statements": [
+                        {
+                            "rule": "identifier",
+                            "value": "D123",
+                            "statements": [
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "D"
+                                },
+                                {
+                                    "rule": "digit",
+                                    "value": "1"
+                                },
+                                {
+                                    "rule": "digit",
+                                    "value": "2"
+                                },
+                                {
+                                    "rule": "digit",
+                                    "value": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "rule": "identifier",
+                            "value": "B34A",
+                            "statements": [
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "B"
+                                },
+                                {
+                                    "rule": "digit",
+                                    "value": "3"
+                                },
+                                {
+                                    "rule": "digit",
+                                    "value": "4"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "A"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "assignment",
+                    "value": "BABOON:=GIRAFFE",
+                    "statements": [
+                        {
+                            "rule": "identifier",
+                            "value": "BABOON",
+                            "statements": [
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "B"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "A"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "B"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "O"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "O"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "N"
+                                }
+                            ]
+                        },
+                        {
+                            "rule": "identifier",
+                            "value": "GIRAFFE",
+                            "statements": [
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "G"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "I"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "R"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "A"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "F"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "F"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "E"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n    "
+                },
+                {
+                    "rule": "assignment",
+                    "value": "TEXT:=\"Hello world!\"",
+                    "statements": [
+                        {
+                            "rule": "identifier",
+                            "value": "TEXT",
+                            "statements": [
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "T"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "E"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "X"
+                                },
+                                {
+                                    "rule": "alphabetic character",
+                                    "value": "T"
+                                }
+                            ]
+                        },
+                        {
+                            "rule": "string",
+                            "value": "\"Hello world!\"",
+                            "statements": [
+                                {
+                                    "rule": "all characters",
+                                    "value": "H"
+                                },
+                                {
+                                    "rule": "all characters",
+                                    "value": "e"
+                                },
+                                {
+                                    "rule": "all characters",
+                                    "value": "l"
+                                },
+                                {
+                                    "rule": "all characters",
+                                    "value": "l"
+                                },
+                                {
+                                    "rule": "all characters",
+                                    "value": "o"
+                                },
+                                {
+                                    "rule": "all characters",
+                                    "value": " "
+                                },
+                                {
+                                    "rule": "all characters",
+                                    "value": "w"
+                                },
+                                {
+                                    "rule": "all characters",
+                                    "value": "o"
+                                },
+                                {
+                                    "rule": "all characters",
+                                    "value": "r"
+                                },
+                                {
+                                    "rule": "all characters",
+                                    "value": "l"
+                                },
+                                {
+                                    "rule": "all characters",
+                                    "value": "d"
+                                },
+                                {
+                                    "rule": "all characters",
+                                    "value": "!"
+                                },
+                                {
+                                    "rule": "all characters",
+                                    "value": "\""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "rule": "white space",
+                    "value": "\n"
+                }
+            ]
+        }
+    ],
+    "value": ""
+}

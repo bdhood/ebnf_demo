@@ -1,0 +1,26 @@
+program = [white space], statement, {white space, statement}, [white space];
+statement = (label | instruction) , [';'];
+
+label = ("public", space, identifer, ":") | ("private", space, identifer, ":") | (identifer, ":");
+instruction = opcode, [space, left operand, [[space], ",", [space], right operand]];
+
+opcode = (
+    "nop"  | "mov" | "add" | "sub" | "mul" | "div" | "mod" | "shl" | "shr" | "and"  | "or"  | 
+    "xor"  | "jmp" | "cmp" | "je"  | "jne" | "jg"  | "jge" | "jl"  | "jle" | "push" | "pop" |
+    "call" | "ret" | "enter" | "leave" | "hlt"
+);
+
+left operand = register | pointer | identifer;
+right operand = register | pointer | value;
+
+pointer = [pointer type], "[", [white space], register, [white space], "]";
+register = "r", ("ax" | "bx" | "cx" | "dx" | "si" | "di" | "bp" | "sp" | "ip" | 
+                 "flag" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15");
+pointer type = ("qword" | "dword" | "word" | "byte"), [white space];
+value = hex int | dec int;
+
+hex int = "0x", ? _0_9A_Fa_f ?, {? _0_9A_Fa_f ?};
+dec int = ? _0_9 ?, {? _0_9 ?};
+white space = ? white space characters ?, { ? white space characters ? };
+space = ("\t" | " "), {"\t" | " "};
+identifer = (? A_z ? | "_") , {? A_z0_9 ? | "_"};

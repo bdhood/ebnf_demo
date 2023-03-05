@@ -1,16 +1,26 @@
 from src.grammar import Grammar
 from src.parser import Parser
-import pprint
+import json
 
-with open('examples/pascal-like/pascal-like.ebnf', 'r') as f:
-    grammar = Grammar()
-    if not grammar.load(f.read()):
-        exit(1)
-    
-with open('examples/pascal-like/source.pas', 'r') as f:
-    parser = Parser(grammar)
-    ast = parser.parse(f.read())
-    if ast == None:
-        parser.print_errors()
-    pprint.pprint(ast)
+examples = [
+    'pas',
+    'asm'
+]
+
+for i in examples:
+    with open(f'examples/{i}/{i}.ebnf', 'r') as f:
+        grammar = Grammar()
+        if not grammar.load(f.read()):
+            exit(1)
+        
+    with open(f'examples/{i}/source.{i}', 'r') as f:
+        parser = Parser(grammar)
+        ast = parser.parse(f.read())
+        if ast == None:
+            print("error:")
+            parser.print_errors()
+            exit(1)
+
+    with open(f'examples/{i}/ast.json', 'w') as f:
+        f.write(json.dumps(ast, indent=4))
 

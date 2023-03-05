@@ -84,7 +84,7 @@ class Grammar:
                 result.append({'type':'cmd', 'value': source[i], 'line': state['line_number']})
                 continue
 
-            print(f'grammar.parse_tokens error line "{str(state["line_number"])}: unhandled character "{source[i]}"')
+            print(f'grammar.parse_tokens error line {str(state["line_number"])}: unhandled character "{source[i]}"')
             return None
 
         return result
