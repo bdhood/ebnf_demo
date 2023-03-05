@@ -1,0 +1,2 @@
+program = '"', { all - '"'}, '"';
+all = ? all visible characters ?;

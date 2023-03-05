@@ -4,7 +4,8 @@ import json
 
 examples = [
     'pas',
-    'asm'
+    'asm',
+    'test'
 ]
 
 for i in examples:

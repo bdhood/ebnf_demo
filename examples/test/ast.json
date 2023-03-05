@@ -1,0 +1,32 @@
+{
+    "rule": "root",
+    "value": "\"test\"",
+    "statements": [
+        {
+            "rule": "program",
+            "value": "\"test\"",
+            "statements": [
+                {
+                    "rule": "all",
+                    "value": "t"
+                },
+                {
+                    "rule": "all",
+                    "value": "e"
+                },
+                {
+                    "rule": "all",
+                    "value": "s"
+                },
+                {
+                    "rule": "all",
+                    "value": "t"
+                },
+                {
+                    "rule": "all",
+                    "value": "\""
+                }
+            ]
+        }
+    ]
+}

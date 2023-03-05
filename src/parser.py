@@ -99,6 +99,9 @@ class Parser:
             return False, index
         
     def __parse_recurse(self, ast_node, rule_name, source, index):
+        if len(source) <= index:
+            self.error_stack.append(f'error ./{self.filename} \'{ast_node["rule"]}\' rejected on \'{rule_name}\', out of bound character index \'{str(index)}\'')
+            return False, index
         if not 'statements' in ast_node:
             ast_node['statements'] = [{'rule': rule_name, 'value': ''}]
         else:
@@ -115,13 +118,9 @@ class Parser:
             if len(ast_node['statements'][-1]['value']) > 0:
                 ast_node['value'] += ast_node['statements'][-1]['value']
             return result, _index
-        elif _index < len(source):
-            self.error_stack.append(f'error ./{self.filename}:{str(self.__get_line_number(source, _index))} \'{ast_node["rule"]}\' rejected on \'{rule_name}\' no match for \'{source[_index]}\'')
-            ast_node['statements'].pop()
-            return False, index
         else:
-            self.error_stack.append(f'error ./{self.filename} \'{ast_node["rule"]}\' rejected on \'{rule_name}\', out of bound character index \'{str(_index)}\'')
             ast_node['statements'].pop()
+            self.error_stack.append(f'error ./{self.filename}:{str(self.__get_line_number(source, _index))} \'{ast_node["rule"]}\' rejected on \'{rule_name}\' no match for \'{source[index]}\'')
             return False, index
 
     def __get_line_number(self, source, index):
@@ -153,7 +152,7 @@ class Parser:
 
     def parse(self, source: str, filename: str = ''):
         self.filename = filename
-        ast_root = {'rule': 'root'}
+        ast_root = {'rule': 'root', 'value': ''}
         result, index = self.__parse_recurse(ast_root, 'program', source, 0)
         if result and index == len(source):
             return ast_root

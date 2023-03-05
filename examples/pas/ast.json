@@ -1,5 +1,6 @@
 {
     "rule": "root",
+    "value": "PROGRAM DEMO1\nBEGIN\n    A:=3;\n    B:=45;\n    H:=-100023;\n    C:=A;\n    D123:=B34A;\n    BABOON:=GIRAFFE;\n    TEXT:=\"Hello world!\";\nEND.",
     "statements": [
         {
             "rule": "program",
@@ -407,6 +408,5 @@
                 }
             ]
         }
-    ],
-    "value": "PROGRAM DEMO1\nBEGIN\n    A:=3;\n    B:=45;\n    H:=-100023;\n    C:=A;\n    D123:=B34A;\n    BABOON:=GIRAFFE;\n    TEXT:=\"Hello world!\";\nEND."
+    ]
 }
