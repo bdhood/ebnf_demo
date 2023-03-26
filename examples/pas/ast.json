@@ -1,412 +1,557 @@
 {
-    "rule": "root",
+    "rule": "program",
     "value": "PROGRAM DEMO1\nBEGIN\n    A:=3;\n    B:=45;\n    H:=-100023;\n    C:=A;\n    D123:=B34A;\n    BABOON:=GIRAFFE;\n    TEXT:=\"Hello world!\";\nEND.",
-    "statements": [
+    "line": 1,
+    "nodes": [
         {
-            "rule": "program",
-            "value": "PROGRAM DEMO1\nBEGIN\n    A:=3;\n    B:=45;\n    H:=-100023;\n    C:=A;\n    D123:=B34A;\n    BABOON:=GIRAFFE;\n    TEXT:=\"Hello world!\";\nEND.",
-            "statements": [
+            "rule": "white space",
+            "value": " ",
+            "line": 1,
+            "nodes": []
+        },
+        {
+            "rule": "identifier",
+            "value": "DEMO1",
+            "line": 1,
+            "nodes": [
                 {
-                    "rule": "white space",
-                    "value": " "
+                    "rule": "alphabetic character",
+                    "value": "D",
+                    "line": 1,
+                    "nodes": []
                 },
                 {
+                    "rule": "alphabetic character",
+                    "value": "E",
+                    "line": 1,
+                    "nodes": []
+                },
+                {
+                    "rule": "alphabetic character",
+                    "value": "M",
+                    "line": 1,
+                    "nodes": []
+                },
+                {
+                    "rule": "alphabetic character",
+                    "value": "O",
+                    "line": 1,
+                    "nodes": []
+                },
+                {
+                    "rule": "digit",
+                    "value": "1",
+                    "line": 1,
+                    "nodes": []
+                }
+            ]
+        },
+        {
+            "rule": "white space",
+            "value": "\n",
+            "line": 1,
+            "nodes": []
+        },
+        {
+            "rule": "white space",
+            "value": "\n    ",
+            "line": 2,
+            "nodes": []
+        },
+        {
+            "rule": "assignment",
+            "value": "A:=3",
+            "line": 3,
+            "nodes": [
+                {
                     "rule": "identifier",
-                    "value": "DEMO1",
-                    "statements": [
+                    "value": "A",
+                    "line": 3,
+                    "nodes": [
                         {
                             "rule": "alphabetic character",
-                            "value": "D"
-                        },
+                            "value": "A",
+                            "line": 3,
+                            "nodes": []
+                        }
+                    ]
+                },
+                {
+                    "rule": "number",
+                    "value": "3",
+                    "line": 3,
+                    "nodes": [
+                        {
+                            "rule": "digit",
+                            "value": "3",
+                            "line": 3,
+                            "nodes": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rule": "white space",
+            "value": "\n    ",
+            "line": 3,
+            "nodes": []
+        },
+        {
+            "rule": "assignment",
+            "value": "B:=45",
+            "line": 4,
+            "nodes": [
+                {
+                    "rule": "identifier",
+                    "value": "B",
+                    "line": 4,
+                    "nodes": [
                         {
                             "rule": "alphabetic character",
-                            "value": "E"
-                        },
+                            "value": "B",
+                            "line": 4,
+                            "nodes": []
+                        }
+                    ]
+                },
+                {
+                    "rule": "number",
+                    "value": "45",
+                    "line": 4,
+                    "nodes": [
                         {
-                            "rule": "alphabetic character",
-                            "value": "M"
-                        },
-                        {
-                            "rule": "alphabetic character",
-                            "value": "O"
+                            "rule": "digit",
+                            "value": "4",
+                            "line": 4,
+                            "nodes": []
                         },
                         {
                             "rule": "digit",
-                            "value": "1"
+                            "value": "5",
+                            "line": 4,
+                            "nodes": []
                         }
                     ]
-                },
-                {
-                    "rule": "white space",
-                    "value": "\n"
-                },
-                {
-                    "rule": "white space",
-                    "value": "\n    "
-                },
-                {
-                    "rule": "assignment",
-                    "value": "A:=3",
-                    "statements": [
-                        {
-                            "rule": "identifier",
-                            "value": "A",
-                            "statements": [
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "A"
-                                }
-                            ]
-                        },
-                        {
-                            "rule": "number",
-                            "value": "3",
-                            "statements": [
-                                {
-                                    "rule": "digit",
-                                    "value": "3"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "rule": "white space",
-                    "value": "\n    "
-                },
-                {
-                    "rule": "assignment",
-                    "value": "B:=45",
-                    "statements": [
-                        {
-                            "rule": "identifier",
-                            "value": "B",
-                            "statements": [
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "B"
-                                }
-                            ]
-                        },
-                        {
-                            "rule": "number",
-                            "value": "45",
-                            "statements": [
-                                {
-                                    "rule": "digit",
-                                    "value": "4"
-                                },
-                                {
-                                    "rule": "digit",
-                                    "value": "5"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "rule": "white space",
-                    "value": "\n    "
-                },
-                {
-                    "rule": "assignment",
-                    "value": "H:=-100023",
-                    "statements": [
-                        {
-                            "rule": "identifier",
-                            "value": "H",
-                            "statements": [
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "H"
-                                }
-                            ]
-                        },
-                        {
-                            "rule": "number",
-                            "value": "-100023",
-                            "statements": [
-                                {
-                                    "rule": "digit",
-                                    "value": "1"
-                                },
-                                {
-                                    "rule": "digit",
-                                    "value": "0"
-                                },
-                                {
-                                    "rule": "digit",
-                                    "value": "0"
-                                },
-                                {
-                                    "rule": "digit",
-                                    "value": "0"
-                                },
-                                {
-                                    "rule": "digit",
-                                    "value": "2"
-                                },
-                                {
-                                    "rule": "digit",
-                                    "value": "3"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "rule": "white space",
-                    "value": "\n    "
-                },
-                {
-                    "rule": "assignment",
-                    "value": "C:=A",
-                    "statements": [
-                        {
-                            "rule": "identifier",
-                            "value": "C",
-                            "statements": [
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "C"
-                                }
-                            ]
-                        },
-                        {
-                            "rule": "identifier",
-                            "value": "A",
-                            "statements": [
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "A"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "rule": "white space",
-                    "value": "\n    "
-                },
-                {
-                    "rule": "assignment",
-                    "value": "D123:=B34A",
-                    "statements": [
-                        {
-                            "rule": "identifier",
-                            "value": "D123",
-                            "statements": [
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "D"
-                                },
-                                {
-                                    "rule": "digit",
-                                    "value": "1"
-                                },
-                                {
-                                    "rule": "digit",
-                                    "value": "2"
-                                },
-                                {
-                                    "rule": "digit",
-                                    "value": "3"
-                                }
-                            ]
-                        },
-                        {
-                            "rule": "identifier",
-                            "value": "B34A",
-                            "statements": [
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "B"
-                                },
-                                {
-                                    "rule": "digit",
-                                    "value": "3"
-                                },
-                                {
-                                    "rule": "digit",
-                                    "value": "4"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "A"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "rule": "white space",
-                    "value": "\n    "
-                },
-                {
-                    "rule": "assignment",
-                    "value": "BABOON:=GIRAFFE",
-                    "statements": [
-                        {
-                            "rule": "identifier",
-                            "value": "BABOON",
-                            "statements": [
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "B"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "A"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "B"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "O"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "O"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "N"
-                                }
-                            ]
-                        },
-                        {
-                            "rule": "identifier",
-                            "value": "GIRAFFE",
-                            "statements": [
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "G"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "I"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "R"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "A"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "F"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "F"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "E"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "rule": "white space",
-                    "value": "\n    "
-                },
-                {
-                    "rule": "assignment",
-                    "value": "TEXT:=\"Hello world!\"",
-                    "statements": [
-                        {
-                            "rule": "identifier",
-                            "value": "TEXT",
-                            "statements": [
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "T"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "E"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "X"
-                                },
-                                {
-                                    "rule": "alphabetic character",
-                                    "value": "T"
-                                }
-                            ]
-                        },
-                        {
-                            "rule": "string",
-                            "value": "\"Hello world!\"",
-                            "statements": [
-                                {
-                                    "rule": "all characters",
-                                    "value": "H"
-                                },
-                                {
-                                    "rule": "all characters",
-                                    "value": "e"
-                                },
-                                {
-                                    "rule": "all characters",
-                                    "value": "l"
-                                },
-                                {
-                                    "rule": "all characters",
-                                    "value": "l"
-                                },
-                                {
-                                    "rule": "all characters",
-                                    "value": "o"
-                                },
-                                {
-                                    "rule": "all characters",
-                                    "value": " "
-                                },
-                                {
-                                    "rule": "all characters",
-                                    "value": "w"
-                                },
-                                {
-                                    "rule": "all characters",
-                                    "value": "o"
-                                },
-                                {
-                                    "rule": "all characters",
-                                    "value": "r"
-                                },
-                                {
-                                    "rule": "all characters",
-                                    "value": "l"
-                                },
-                                {
-                                    "rule": "all characters",
-                                    "value": "d"
-                                },
-                                {
-                                    "rule": "all characters",
-                                    "value": "!"
-                                },
-                                {
-                                    "rule": "all characters",
-                                    "value": "\""
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "rule": "white space",
-                    "value": "\n"
                 }
             ]
+        },
+        {
+            "rule": "white space",
+            "value": "\n    ",
+            "line": 4,
+            "nodes": []
+        },
+        {
+            "rule": "assignment",
+            "value": "H:=-100023",
+            "line": 5,
+            "nodes": [
+                {
+                    "rule": "identifier",
+                    "value": "H",
+                    "line": 5,
+                    "nodes": [
+                        {
+                            "rule": "alphabetic character",
+                            "value": "H",
+                            "line": 5,
+                            "nodes": []
+                        }
+                    ]
+                },
+                {
+                    "rule": "number",
+                    "value": "-100023",
+                    "line": 5,
+                    "nodes": [
+                        {
+                            "rule": "digit",
+                            "value": "1",
+                            "line": 5,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "digit",
+                            "value": "0",
+                            "line": 5,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "digit",
+                            "value": "0",
+                            "line": 5,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "digit",
+                            "value": "0",
+                            "line": 5,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "digit",
+                            "value": "2",
+                            "line": 5,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "digit",
+                            "value": "3",
+                            "line": 5,
+                            "nodes": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rule": "white space",
+            "value": "\n    ",
+            "line": 5,
+            "nodes": []
+        },
+        {
+            "rule": "assignment",
+            "value": "C:=A",
+            "line": 6,
+            "nodes": [
+                {
+                    "rule": "identifier",
+                    "value": "C",
+                    "line": 6,
+                    "nodes": [
+                        {
+                            "rule": "alphabetic character",
+                            "value": "C",
+                            "line": 6,
+                            "nodes": []
+                        }
+                    ]
+                },
+                {
+                    "rule": "identifier",
+                    "value": "A",
+                    "line": 6,
+                    "nodes": [
+                        {
+                            "rule": "alphabetic character",
+                            "value": "A",
+                            "line": 6,
+                            "nodes": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rule": "white space",
+            "value": "\n    ",
+            "line": 6,
+            "nodes": []
+        },
+        {
+            "rule": "assignment",
+            "value": "D123:=B34A",
+            "line": 7,
+            "nodes": [
+                {
+                    "rule": "identifier",
+                    "value": "D123",
+                    "line": 7,
+                    "nodes": [
+                        {
+                            "rule": "alphabetic character",
+                            "value": "D",
+                            "line": 7,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "digit",
+                            "value": "1",
+                            "line": 7,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "digit",
+                            "value": "2",
+                            "line": 7,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "digit",
+                            "value": "3",
+                            "line": 7,
+                            "nodes": []
+                        }
+                    ]
+                },
+                {
+                    "rule": "identifier",
+                    "value": "B34A",
+                    "line": 7,
+                    "nodes": [
+                        {
+                            "rule": "alphabetic character",
+                            "value": "B",
+                            "line": 7,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "digit",
+                            "value": "3",
+                            "line": 7,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "digit",
+                            "value": "4",
+                            "line": 7,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "A",
+                            "line": 7,
+                            "nodes": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rule": "white space",
+            "value": "\n    ",
+            "line": 7,
+            "nodes": []
+        },
+        {
+            "rule": "assignment",
+            "value": "BABOON:=GIRAFFE",
+            "line": 8,
+            "nodes": [
+                {
+                    "rule": "identifier",
+                    "value": "BABOON",
+                    "line": 8,
+                    "nodes": [
+                        {
+                            "rule": "alphabetic character",
+                            "value": "B",
+                            "line": 8,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "A",
+                            "line": 8,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "B",
+                            "line": 8,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "O",
+                            "line": 8,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "O",
+                            "line": 8,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "N",
+                            "line": 8,
+                            "nodes": []
+                        }
+                    ]
+                },
+                {
+                    "rule": "identifier",
+                    "value": "GIRAFFE",
+                    "line": 8,
+                    "nodes": [
+                        {
+                            "rule": "alphabetic character",
+                            "value": "G",
+                            "line": 8,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "I",
+                            "line": 8,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "R",
+                            "line": 8,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "A",
+                            "line": 8,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "F",
+                            "line": 8,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "F",
+                            "line": 8,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "E",
+                            "line": 8,
+                            "nodes": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rule": "white space",
+            "value": "\n    ",
+            "line": 8,
+            "nodes": []
+        },
+        {
+            "rule": "assignment",
+            "value": "TEXT:=\"Hello world!\"",
+            "line": 9,
+            "nodes": [
+                {
+                    "rule": "identifier",
+                    "value": "TEXT",
+                    "line": 9,
+                    "nodes": [
+                        {
+                            "rule": "alphabetic character",
+                            "value": "T",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "E",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "X",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "alphabetic character",
+                            "value": "T",
+                            "line": 9,
+                            "nodes": []
+                        }
+                    ]
+                },
+                {
+                    "rule": "string",
+                    "value": "\"Hello world!\"",
+                    "line": 9,
+                    "nodes": [
+                        {
+                            "rule": "all characters",
+                            "value": "H",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "all characters",
+                            "value": "e",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "all characters",
+                            "value": "l",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "all characters",
+                            "value": "l",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "all characters",
+                            "value": "o",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "all characters",
+                            "value": " ",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "all characters",
+                            "value": "w",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "all characters",
+                            "value": "o",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "all characters",
+                            "value": "r",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "all characters",
+                            "value": "l",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "all characters",
+                            "value": "d",
+                            "line": 9,
+                            "nodes": []
+                        },
+                        {
+                            "rule": "all characters",
+                            "value": "!",
+                            "line": 9,
+                            "nodes": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "rule": "white space",
+            "value": "\n",
+            "line": 9,
+            "nodes": []
         }
     ]
 }

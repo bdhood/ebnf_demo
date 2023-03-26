@@ -1,32 +1,31 @@
 {
-    "rule": "root",
+    "rule": "program",
     "value": "\"test\"",
-    "statements": [
+    "line": 1,
+    "nodes": [
         {
-            "rule": "program",
-            "value": "\"test\"",
-            "statements": [
-                {
-                    "rule": "all",
-                    "value": "t"
-                },
-                {
-                    "rule": "all",
-                    "value": "e"
-                },
-                {
-                    "rule": "all",
-                    "value": "s"
-                },
-                {
-                    "rule": "all",
-                    "value": "t"
-                },
-                {
-                    "rule": "all",
-                    "value": "\""
-                }
-            ]
+            "rule": "all",
+            "value": "t",
+            "line": 1,
+            "nodes": []
+        },
+        {
+            "rule": "all",
+            "value": "e",
+            "line": 1,
+            "nodes": []
+        },
+        {
+            "rule": "all",
+            "value": "s",
+            "line": 1,
+            "nodes": []
+        },
+        {
+            "rule": "all",
+            "value": "t",
+            "line": 1,
+            "nodes": []
         }
     ]
 }

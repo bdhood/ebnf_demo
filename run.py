@@ -1,5 +1,5 @@
 from src.grammar import Grammar
-from src.parser import Parser
+from src.parser import Parser, Ast
 import json
 
 examples = [
@@ -23,5 +23,5 @@ for i in examples:
             exit(1)
 
     with open(f'examples/{i}/ast.json', 'w') as f:
-        f.write(json.dumps(ast, indent=4))
+        f.write(json.dumps(ast.to_object(), indent=4))
 
