@@ -1,5 +1,5 @@
 from src.grammar import Grammar
-from src.parser import Parser, Ast
+from src.parser import Parser, AstNode
 import json
 
 examples = [

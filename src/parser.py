@@ -22,16 +22,6 @@ class AstNode:
             'nodes': [i.to_object() for i in self.nodes]
         }
 
-class Ast:
-    def __init__(self):
-        self.root = AstNode(rule_name='root', line=0)
-
-    def to_string(self) -> str:
-        return self.root.to_string()
-
-    def to_object(self) -> dict:
-        return self.root.to_object()
-
 class Parser:
 
     def __eval_statement_op_and(self, node: AstNode, statement: Statement, source, index) -> tuple[bool, int]:
@@ -182,13 +172,12 @@ class Parser:
             'A_z0_9': A_Z + a_z + _0_9 
         }
 
-    def parse(self, source: str, filename: str = ''):
+    def parse(self, source: str, filename: str = '') -> AstNode:
         self.filename = filename
-        ast = Ast()
-        result, index = self.__parse_recurse(ast.root, 'program', source, 0)
+        root = AstNode(rule_name='root', line=0)
+        result, index = self.__parse_recurse(root, 'program', source, 0)
         if result and index == len(source):
-            ast.root = ast.root.nodes[0]
-            return ast
+            return root.nodes[0]
         else:
             return None
 
