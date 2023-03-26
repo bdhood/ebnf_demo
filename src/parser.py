@@ -23,7 +23,6 @@ class AstNode:
         }
 
 class Parser:
-
     def __eval_statement_op_and(self, node: AstNode, statement: Statement, source, index) -> tuple[bool, int]:
         _index = index
         for i in statement.statements:
@@ -125,7 +124,7 @@ class Parser:
                 print('Error unhandled special code', statement)
             return False, index
         else:
-            print('unhandled 8')
+            self.error_stack.append(f'error ./{self.filename}:{str(self.__get_line_number(source, index))} \'{node.rule_name}\' unknown statement.type \'{_type}\'')
             return False, index
         
     def __parse_recurse(self, node: AstNode, rule_name: str, source, index) -> tuple[bool, int]:

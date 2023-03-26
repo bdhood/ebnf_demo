@@ -24,4 +24,3 @@ for i in examples:
 
     with open(f'examples/{i}/ast.json', 'w') as f:
         f.write(json.dumps(ast.to_object(), indent=4))
-
