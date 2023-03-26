@@ -187,7 +187,8 @@ class Parser:
         ast = Ast()
         result, index = self.__parse_recurse(ast.root, 'program', source, 0)
         if result and index == len(source):
-            return ast.root.nodes[0]
+            ast.root = ast.root.nodes[0]
+            return ast
         else:
             return None
 
