@@ -23,24 +23,24 @@ class AstNode:
         }
 
 class Parser:
-    def __eval_statement_op_and(self, node: AstNode, statement: Statement, source, index) -> tuple[bool, int]:
+    def __eval_statement_op_and(self, node: AstNode, statement: Statement, index) -> tuple[bool, int]:
         _index = index
         for i in statement.statements:
-            _result, _index = self.__eval_statement(node, i, source, _index)
+            _result, _index = self.__eval_statement(node, i, _index)
             if _result == False:
                 return False, index
         return True, _index
 
-    def __eval_statement_op_or(self, node: AstNode, statement: Statement, source, index) -> tuple[bool, int]:
+    def __eval_statement_op_or(self, node: AstNode, statement: Statement, index) -> tuple[bool, int]:
         for i in statement.statements:
-            _result, _index = self.__eval_statement(node, i, source, index)
+            _result, _index = self.__eval_statement(node, i, index)
             if _result:
                 return True, _index
         return False, index
 
-    def __eval_statement_op_nand(self, node: AstNode, statement: Statement, source, index) -> tuple[bool, int]:
+    def __eval_statement_op_nand(self, node: AstNode, statement: Statement, index) -> tuple[bool, int]:
         for i in range(len(statement.statements)):
-            _result, _index = self.__eval_statement(node, statement.statements[i], source, index)
+            _result, _index = self.__eval_statement(node, statement.statements[i], index)
             if i == 0 and _result:
                 __index = _index
             elif i == 0 and not _result:
@@ -51,72 +51,72 @@ class Parser:
                 return False, index
         return True, __index
 
-    def __eval_statement_op(self, node: AstNode, statement: Statement, source, index) -> tuple[bool, int]:
+    def __eval_statement_op(self, node: AstNode, statement: Statement, index) -> tuple[bool, int]:
         if statement.op == ',':
-            return self.__eval_statement_op_and(node, statement, source, index)
+            return self.__eval_statement_op_and(node, statement, index)
         elif statement.op == '|':
-            return self.__eval_statement_op_or(node, statement, source, index)
+            return self.__eval_statement_op_or(node, statement, index)
         elif statement.op == '-':
-            return self.__eval_statement_op_nand(node, statement, source, index)
+            return self.__eval_statement_op_nand(node, statement, index)
         elif len(statement.statements) == 1:
-            return self.__eval_statement(node, statement.statements[0], source, index)
+            return self.__eval_statement(node, statement.statements[0], index)
         else:
             print('__eval_statement_op unhandled statement:\n', statement.to_string())
             return False, index
 
-    def __eval_group_singular(self, node: AstNode, statement: Statement, source, index) -> tuple[bool, int]:
-        result, _index = self.__eval_statement_op(node, statement, source, index)
+    def __eval_group_singular(self, node: AstNode, statement: Statement, index) -> tuple[bool, int]:
+        result, _index = self.__eval_statement_op(node, statement, index)
         if result == True and _index > index:
             return True, _index
         else:
             return False, index
 
-    def __eval_group_optional(self, node: AstNode, statement: Statement, source, index) -> tuple[bool, int]:
-        result, _index = self.__eval_statement_op(node, statement, source, index)
+    def __eval_group_optional(self, node: AstNode, statement: Statement, index) -> tuple[bool, int]:
+        result, _index = self.__eval_statement_op(node, statement, index)
         if result == True and _index > index:
             return True, _index
         else:
             return True, index
 
-    def __eval_group_repetitive(self, node: AstNode, statement: Statement, source, index) -> tuple[bool, int]:
+    def __eval_group_repetitive(self, node: AstNode, statement: Statement, index) -> tuple[bool, int]:
         while True:
-            _result, _index = self.__eval_statement_op(node, statement, source, index)
+            _result, _index = self.__eval_statement_op(node, statement, index)
             if _result == True and _index > index:
                 index = _index
                 continue
             else:
                 return True, index
 
-    def __eval_statement(self, node: AstNode, statement: Statement, source, index) -> tuple[bool, int]:
+    def __eval_statement(self, node: AstNode, statement: Statement, index) -> tuple[bool, int]:
         _type = statement.type
         if _type in ['()', 'rule']:
-            return self.__eval_group_singular(node, statement, source, index)
+            return self.__eval_group_singular(node, statement, index)
         elif _type == '[]':
-            return self.__eval_group_optional(node, statement, source, index)
+            return self.__eval_group_optional(node, statement, index)
         elif _type == '{}':
-            return self.__eval_group_repetitive(node, statement, source, index)
+            return self.__eval_group_repetitive(node, statement, index)
         elif _type == 'var':
-            result, _index = self.__parse_recurse(node, statement.value, source, index)
+            result, _index = self.__parse_recurse(node, statement.value, index)
             if result == True and _index > index:
                 return True, _index
             else:
                 return False, index
         elif _type == 'str':
             value = statement.value
-            if index + len(value) > len(source):
+            if index + len(value) > len(self.source):
                 return False, index
-            if source[index:index+len(value)] == value:
+            if self.source[index:index+len(value)] == value:
                 node.value += value
                 return True, index+len(value)
             else:
                 return False, index
         elif _type == 'spec':
             value = statement.value
-            if index >= len(source):
+            if index >= len(self.source):
                 return False, index
             if value in self.special_map.keys():
-                if source[index] in self.special_map[value]:
-                    node.value += str(source[index])
+                if self.source[index] in self.special_map[value]:
+                    node.value += str(self.source[index])
                     return True, index + 1
                 else:
                     return False, index
@@ -124,33 +124,33 @@ class Parser:
                 print('Error unhandled special code', statement)
             return False, index
         else:
-            self.error_stack.append(f'error ./{self.filename}:{str(self.__get_line_number(source, index))} \'{node.rule_name}\' unknown statement.type \'{_type}\'')
+            self.error_stack.append(f'error ./{self.filename}:{str(self.__get_line_number(index))} \'{node.rule_name}\' unknown statement.type \'{_type}\'')
             return False, index
         
-    def __parse_recurse(self, node: AstNode, rule_name: str, source, index) -> tuple[bool, int]:
-        if len(source) <= index:
+    def __parse_recurse(self, node: AstNode, rule_name: str, index) -> tuple[bool, int]:
+        if len(self.source) <= index:
             self.error_stack.append(f'error ./{self.filename} \'{node.rule_name}\' rejected on \'{rule_name}\', out of bound character index \'{str(index)}\'')
             return False, index
-        node.nodes.append(AstNode(rule_name=rule_name, value='', line = self.__get_line_number(source, index)))
+        node.nodes.append(AstNode(rule_name=rule_name, value='', line = self.__get_line_number(index)))
         rule = self.grammar.get_rule(rule_name)
         if rule == None:
             node.nodes.pop()
             return False, index
-        result, _index = self.__eval_statement(node.nodes[-1], rule, source, index)
+        result, _index = self.__eval_statement(node.nodes[-1], rule, index)
         if result:
             node.value += node.nodes[-1].value
             return result, _index
         else:
             node.nodes.pop()
-            self.error_stack.append(f'error ./{self.filename}:{str(self.__get_line_number(source, _index))} \'{node.rule_name}\' rejected on \'{rule_name}\' no match for \'{source[index]}\'')
+            self.error_stack.append(f'error ./{self.filename}:{str(self.__get_line_number(_index))} \'{node.rule_name}\' rejected on \'{rule_name}\' no match for \'{self.source[index]}\'')
             return False, index
 
-    def __get_line_number(self, source, index):
+    def __get_line_number(self, index):
         line_count = 1
-        for i in range(len(source)):
+        for i in range(len(self.source)):
             if i == index:
                 return line_count
-            if source[i] == '\n':
+            if self.source[i] == '\n':
                 line_count += 1
         return -1
 
@@ -173,8 +173,9 @@ class Parser:
 
     def parse(self, source: str, filename: str = '') -> AstNode:
         self.filename = filename
+        self.source = source
         root = AstNode(rule_name='root', line=0)
-        result, index = self.__parse_recurse(root, 'program', source, 0)
+        result, index = self.__parse_recurse(root, 'program', 0)
         if result and index == len(source):
             return root.nodes[0]
         else:
